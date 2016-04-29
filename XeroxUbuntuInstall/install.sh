@@ -1,11 +1,12 @@
-sudo apt-get install sudo
+apt-get update
+apt-get install sudo
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install curl rpm cpio
 
 mkdir 6128MFP_Linux
 cd 6128MFP_Linux
-curl -o 6128MFP_Linux.tar -J -L https://drive.google.com/uc?id=0B3bpyA8KbMaXTkRBLVhwajNkdTg
+curl -o 6128MFP_Linux.tar -J -L https://github.com/srfrnk/contribute/raw/master/XeroxUbuntuInstall/6128MFP_Linux.tar
 tar -xf 6128MFP_Linux.tar
 cd 6128MFP_Linux/English
 rpm2cpio Xerox-Phaser-6128MFP-1.0-1.i386.rpm | cpio -idmv
