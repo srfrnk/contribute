@@ -3,5 +3,6 @@
   "sendUsageStatistics": true,
   "socketId": 0,
   "diffType":"sidebysidediff",
-  "logGitOutput": true
+  "logGitOutput": true,
+  "defaultRepositories": []
 }
