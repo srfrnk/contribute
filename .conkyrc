@@ -105,7 +105,7 @@ ${time %A}$alignr${time %d/%m/%Y}
 Hostname:$alignr$nodename
 
 RAM: ${color lightgray}$memperc% $membar$color
-CPU ${color lightgray}$cpu% ${cpubar cpu1}$color
+CPU ${color lightgray}$cpu% ${cpubar}$color
 Temp: ${exec cat /sys/class/thermal/thermal_zone7/temp | cut -c-2}°C
 
 Swap: $swapperc% ${color lightgray}$swapbar$color
