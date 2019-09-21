@@ -1,106 +1,205 @@
+conky.config = {
+-- set to yes if you want Conky to be forked in the background
+	background = true,
+
+-- Use Xft?
+	use_xft = true,
+
+-- Xft font when Xft is enabled
+	font = 'Tahoma:size=10',
+
+-- Text alpha when using Xft
+	xftalpha = 0.9,
+
+-- Update interval in seconds
+	update_interval = 1.0,
+
+-- This is the number of times Conky will update before quitting.
+-- Set to zero to run forever.
+	total_run_times = 0,
+
+-- Create own window instead of using desktop (required in nautilus)
+	own_window = true,
+
+-- If own_window is yes, you may use type normal, desktop or override
+	own_window_type = 'desktop',
+
+-- Use pseudo transparency with own_window?
+	own_window_transparent = false,
+
+-- If own_window is yes, these window manager hints may be used
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+-- Use double buffering (reduces flicker, may not work for everyone)
+	double_buffer = true,
+
+-- Minimum size of text area
+	minimum_width = 160, minimum_height = 5,
+
+-- Maximum width
+	maximum_width = 400,
+
+-- Draw shades?
+	draw_shades = false,
+
+-- Draw outlines?
+	draw_outline = false,
+
+-- Draw borders around text
+	draw_borders = false,
+
+-- Draw borders around graphs
+	draw_graph_borders = false,
 # set to yes if you want Conky to be forked in the background
+2
 background yes
-
+3
+​
+4
 # Use Xft?
+5
 use_xft yes
-
+6
+​
+7
 # Xft font when Xft is enabled
+8
 xftfont Tahoma:size=10
-
+9
+​
+10
 # Text alpha when using Xft
+11
 xftalpha 0.9
-
+12
+​
+13
 # Update interval in seconds
+14
 update_interval 1.0
-
+15
+​
+16
 # This is the number of times Conky will update before quitting.
+17
 # Set to zero to run forever.
+18
 total_run_times 0
-
+19
+​
+20
 # Create own window instead of using desktop (required in nautilus)
+21
 own_window yes
-
+22
+​
+23
 # If own_window is yes, you may use type normal, desktop or override
+24
 own_window_type desktop
-
+25
+​
+26
 # Use pseudo transparency with own_window?
+27
 own_window_transparent no
-
+28
+​
+29
 # If own_window is yes, these window manager hints may be used
+30
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-
+31
+​
+32
 # Use double buffering (reduces flicker, may not work for everyone)
+33
 double_buffer yes
-
+34
+​
+35
 # Minimum size of text area
+36
 minimum_size 160 5
-
+37
+​
+38
 # Maximum width
+39
 maximum_width 400
-
+40
+​
+41
 # Draw shades?
+42
 draw_shades no
-
+43
+​
+44
 # Draw outlines?
+45
 draw_outline no
-
+46
+​
+47
 # Draw borders around text
+48
 draw_borders no
+49
 
-# Draw borders around graphs
-draw_graph_borders no
+-- Stippled borders?
+-- stippled_borders 8
 
-# Stippled borders?
-# stippled_borders 8
+-- border margins
+-- border_margin 2
 
-# border margins
-# border_margin 2
+-- border width
+-- border_width 1
 
-# border width
-# border_width 1
+-- Default colors and also border colors
+	default_color = 'white',
+	default_shade_color = 'red',
+	default_outline_color = 'green',
 
-# Default colors and also border colors
-default_color white
-default_shade_color red
-default_outline_color green
+-- Text alignment, other possible values are commented
+--alignment top_left
+	alignment = 'top_right',
+--alignment bottom_left
+--alignment bottom_right
+--alignment none
 
-# Text alignment, other possible values are commented
-#alignment top_left
-alignment top_right
-#alignment bottom_left
-#alignment bottom_right
-#alignment none
+-- Gap between borders of screen and text
+-- same thing as passing -x at command line
+	gap_x = 6,
+	gap_y = 65,
 
-# Gap between borders of screen and text
-# same thing as passing -x at command line
-gap_x 6
-gap_y 34
+-- Subtract file system buffers from used memory?
+	no_buffers = true,
 
-# Subtract file system buffers from used memory?
-no_buffers yes
+-- set to yes if you want all text to be in uppercase
+	uppercase = false,
 
-# set to yes if you want all text to be in uppercase
-uppercase no
+-- number of cpu samples to average
+-- set to 1 to disable averaging
+	cpu_avg_samples = 2,
 
-# number of cpu samples to average
-# set to 1 to disable averaging
-cpu_avg_samples 2
+-- Force UTF8? note that UTF8 support required XFT
+	override_utf8_locale = true,
 
-# Force UTF8? note that UTF8 support required XFT
-override_utf8_locale yes
+-- variable is given either in format $variable or in ${variable}
 
-# variable is given either in format $variable or in ${variable}
+-- stuff after 'TEXT' will be formatted on screen
 
-# stuff after 'TEXT' will be formatted on screen
+--  unused text
+--  Current:${alignr}${execi 20 /home/tonyt/scripts/.conky_eth2} Mbits/sec
+--  hda Temp:${alignr}${execi 1800 /home/tonyt/scripts/.hdtemp}
 
-#  unused text
-#  Current:${alignr}${execi 20 /home/tonyt/scripts/.conky_eth2} Mbits/sec
-#  hda Temp:${alignr}${execi 1800 /home/tonyt/scripts/.hdtemp}
+};
 
-TEXT
+conky.text = [[
 $sysname $kernel
 Uptime:$alignr$uptime
-${time %A}$alignr${time %d/%m/%Y}
+${time %A}$alignr${time %m/%d/%Y}
 
 Hostname:$alignr$nodename
 
@@ -109,3 +208,4 @@ CPU ${color lightgray}$cpu% ${cpubar}$color
 Temp: ${exec cat /sys/class/thermal/thermal_zone7/temp | cut -c-2}°C
 
 Swap: $swapperc% ${color lightgray}$swapbar$color
+]];
